@@ -1,0 +1,705 @@
+/* ============================= */
+/* SPLASH SCREEN */
+/* ============================= */
+
+#splash {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    z-index: 9999;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgb(10, 25, 100),
+            rgb(40, 70, 190),
+            rgb(95, 55, 180),
+            rgb(20, 80, 190)
+        );
+
+    background-size: 300% 300%;
+
+    animation: fundoSplash 8s ease infinite;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+
+/* Quando a Splash desaparecer */
+
+#splash.sair {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+/* CONTEÚDO DA SPLASH */
+
+.splash-conteudo {
+
+    text-align: center;
+
+    animation:
+        aparecerSplash 1.5s ease forwards;
+}
+
+
+/* LOGO DA SPLASH */
+
+.logo-splash {
+
+    width: 180px;
+
+    max-width: 60vw;
+
+    border-radius: 15%;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 0 20px rgba(255,255,255,0.25),
+        0 0 50px rgba(80,100,255,0.5);
+
+    animation:
+        logoSplash 2s ease-in-out infinite alternate;
+}
+
+
+/* TEXTO */
+
+.splash-conteudo h1 {
+
+    margin: 0;
+
+    color: white;
+
+    font-size: 42px;
+
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 15px rgba(255,255,255,0.4);
+}
+
+
+.splash-conteudo p {
+
+    margin-top: 12px;
+
+    color: #e0e5ff;
+
+    font-size: 20px;
+
+    letter-spacing: 2px;
+}
+
+
+/* BARRA DE CARREGAMENTO */
+
+.carregamento {
+
+    width: 180px;
+
+    height: 4px;
+
+    margin: 30px auto 0;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.25);
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+.carregamento::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 0%;
+
+    height: 100%;
+
+    background: white;
+
+    border-radius: 10px;
+
+    animation:
+        carregando 2.5s linear forwards;
+}
+
+
+/* ANIMAÇÕES */
+
+@keyframes fundoSplash {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+
+
+@keyframes aparecerSplash {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(30px) scale(0.95);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+
+    }
+
+}
+
+
+@keyframes logoSplash {
+
+    from {
+
+        transform: scale(1);
+
+    }
+
+    to {
+
+        transform: scale(1.05);
+
+    }
+
+}
+
+
+@keyframes carregando {
+
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+
+}
+
+
+/* ============================= */
+/* CONFIGURAÇÃO GERAL */
+/* ============================= */
+
+body {
+
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        rgb(20, 80, 220),
+        rgb(65, 55, 190),
+        rgb(125, 75, 190),
+        rgb(30, 100, 220)
+    );
+
+    background-attachment: fixed;
+
+    background-size: 300% 300%;
+}
+
+
+/* ============================= */
+/* BARRA SUPERIOR */
+/* ============================= */
+
+.barra-topo {
+
+    background: rgba(4, 7, 161, 0.75);
+
+    color: white;
+
+    text-align: center;
+
+    padding: 10px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    backdrop-filter: blur(5px);
+}
+
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+header {
+
+    background: transparent;
+
+    padding: 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+
+header img {
+
+    width: 150px;
+
+    border-radius: 10%;
+
+    transition: 0.5s;
+}
+
+
+header img:hover {
+
+    transform: scale(1.05);
+
+    box-shadow:
+        10px 10px 25px rgba(255,255,255,0.15);
+}
+
+
+/* ============================= */
+/* BARRA DE PESQUISA */
+/* ============================= */
+
+.search-bar {
+
+    position: relative;
+
+    width: 70px;
+
+    height: 50px;
+
+    background: rgba(14, 4, 56, 0.85);
+
+    border-radius: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    transition:
+        width 0.7s cubic-bezier(0.8, -0.4, 0.2, 1.4);
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    padding: 0 10px;
+
+    overflow: hidden;
+
+    margin-top: 20px;
+}
+
+
+.search-bar:focus-within {
+
+    width: 300px;
+}
+
+
+.search-bar input {
+
+    width: 0;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 16px;
+
+    transition: width 0.5s ease;
+}
+
+
+.search-bar:focus-within input {
+
+    width: 220px;
+
+    margin-left: 10px;
+}
+
+
+.search-bar input::placeholder {
+
+    color: #ccc;
+}
+
+
+.search-button {
+
+    min-width: 50px;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+
+/* ============================= */
+/* MENU */
+/* ============================= */
+
+.menu {
+
+    background: rgba(20, 20, 100, 0.35);
+
+    display: flex;
+
+    justify-content: left;
+
+    align-items: center;
+
+    gap: 40px;
+
+    padding: 18px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(8px);
+}
+
+
+.menu a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+
+    position: relative;
+}
+
+
+.menu a:hover {
+
+    color: #bfbfbf;
+}
+
+
+/* ============================= */
+/* LINHA ANIMADA DO MENU */
+/* ============================= */
+
+.menu a::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 2px;
+
+    bottom: -5px;
+
+    left: 0;
+
+    background-color: #b8cb09;
+
+    transform: scaleX(0);
+
+    transform-origin: bottom right;
+
+    transition: transform 0.3s ease;
+}
+
+
+.menu a:hover::after {
+
+    transform: scaleX(1);
+
+    transform-origin: bottom left;
+}
+
+
+/* ============================= */
+/* HERO / BANNER */
+/* ============================= */
+
+.hero {
+
+    height: 450px;
+
+    background-image:
+        url("../Imagens/banner da loja azul.jpeg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    display: flex;
+
+    align-items: center;
+
+    padding-left: 80px;
+}
+
+
+/* ============================= */
+/* TEXTO DO HERO */
+/* ============================= */
+
+.hero-texto h1 {
+
+    font-size: 60px;
+
+    margin-bottom: 20px;
+}
+
+
+.hero-texto p {
+
+    font-size: 18px;
+
+    color: #afbb04;
+
+    margin-bottom: 30px;
+}
+
+
+/* ============================= */
+/* BOTÃO DO HERO */
+/* ============================= */
+
+.botao-hero {
+
+    background-color: rgb(238, 255, 0);
+
+    color: rgb(63, 63, 4);
+
+    padding: 25px 30px;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+
+.botao-hero:hover {
+
+    background-color: #000000;
+
+    box-shadow:
+        0 0 22px #260942;
+}
+
+
+/* ============================= */
+/* SOBRE */
+/* ============================= */
+
+.sobre {
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    background: transparent;
+}
+
+
+.sobre h2 {
+
+    margin-bottom: 20px;
+
+    font-size: 35px;
+
+    color: white;
+}
+
+
+.sobre p {
+
+    max-width: 700px;
+
+    margin: auto;
+
+    color: #cfcfcf;
+
+    line-height: 28px;
+}
+
+
+/* ============================= */
+/* DIFERENCIAIS */
+/* ============================= */
+
+.diferenciais {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 30px;
+
+    padding: 40px;
+
+    background: transparent;
+}
+
+
+.card-diferencial {
+
+    background: rgba(38, 9, 66, 0.65);
+
+    width: 280px;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    transition: 0.3s;
+
+    backdrop-filter: blur(5px);
+}
+
+
+.card-diferencial:hover {
+
+    transform: translateY(-5px);
+
+    border-color: #555;
+}
+
+
+.card-diferencial p {
+
+    color: #bdbdbd;
+}
+
+
+/* ============================= */
+/* TÍTULOS */
+/* ============================= */
+
+h1,
+h2 {
+
+    text-align: center;
+}
+
+
+/* ============================= */
+/* RODAPÉ */
+/* ============================= */
+
+footer {
+
+    background: rgba(24, 6, 44, 0.7);
+
+    text-align: center;
+
+    padding: 30px;
+
+    margin-top: 50px;
+
+    border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+
+footer p {
+
+    color: #999;
+}
+
+
+
+#splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    z-index: 9999;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#splash.sumir {
+    opacity: 0;
+    visibility: hidden;
+}

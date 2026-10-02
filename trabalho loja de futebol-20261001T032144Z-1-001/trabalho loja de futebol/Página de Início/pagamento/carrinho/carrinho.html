@@ -1,0 +1,2452 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Meu Carrinho - Futbol Store</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #07002b,
+                    #172b8f,
+                    #673ab7
+                );
+        }
+
+
+        /* ================================
+           BARRA SUPERIOR
+        ================================= */
+
+        .barra-topo {
+            background: #0e0438;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+
+        /* ================================
+           CABEÇALHO
+        ================================= */
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+
+        header img {
+            width: 180px;
+            max-width: 80%;
+        }
+
+
+        /* ================================
+           MENU
+        ================================= */
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+
+        .menu a:hover {
+            color: #9d8cff;
+            transform: scale(1.05);
+        }
+
+
+        /* ================================
+           TÍTULO
+        ================================= */
+
+        .titulo {
+            text-align: center;
+            margin: 35px 0 25px;
+        }
+
+
+        .titulo h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+
+        .titulo p {
+            color: #d5d5ff;
+        }
+
+
+        /* ================================
+           CONTEÚDO
+        ================================= */
+
+        .conteudo {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 330px;
+
+            gap: 25px;
+
+            padding-bottom: 50px;
+        }
+
+
+        /* ================================
+           LISTA DOS PRODUTOS
+        ================================= */
+
+        .lista-produtos {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+
+        /* ================================
+           PRODUTO
+        ================================= */
+
+        .produto {
+            background:
+                rgba(14, 4, 56, 0.9);
+
+            border-radius: 15px;
+
+            padding: 18px;
+
+            display: grid;
+
+            grid-template-columns:
+                110px 1fr auto;
+
+            gap: 20px;
+
+            align-items: center;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0, 0, 0, 0.25);
+
+            transition: 0.3s;
+        }
+
+
+        .produto:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 30px
+                rgba(0, 0, 0, 0.35);
+        }
+
+
+        .produto img {
+            width: 110px;
+            height: 110px;
+
+            object-fit: contain;
+
+            background: white;
+
+            border-radius: 10px;
+
+            padding: 8px;
+        }
+
+
+        .produto-info h2 {
+            margin: 0 0 8px;
+            font-size: 20px;
+        }
+
+
+        .produto-info p {
+            margin: 6px 0;
+            color: #d7d7ff;
+        }
+
+
+        .preco {
+            font-size: 20px;
+            font-weight: bold;
+            color: white !important;
+        }
+
+
+        /* ================================
+           QUANTIDADE
+        ================================= */
+
+        .quantidade {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+
+        .texto-quantidade {
+            margin-right: 5px;
+            color: #d7d7ff;
+            font-weight: bold;
+        }
+
+
+        .botao-quantidade {
+            width: 32px;
+            height: 32px;
+
+            border: none;
+            border-radius: 7px;
+
+            background: white;
+            color: #172b8f;
+
+            cursor: pointer;
+
+            font-size: 20px;
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+
+        .botao-quantidade:hover {
+            transform: scale(1.08);
+            background: #dcdcff;
+        }
+
+
+        .numero-quantidade {
+            min-width: 35px;
+
+            text-align: center;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            color: white;
+        }
+
+
+        /* ================================
+           AÇÕES
+        ================================= */
+
+        .produto-acoes {
+            display: flex;
+            align-items: center;
+        }
+
+
+        .remover {
+            border: none;
+
+            background: #e53935;
+
+            color: white;
+
+            padding: 9px 12px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .remover:hover {
+            background: #ff5555;
+            transform: scale(1.05);
+        }
+
+
+        /* ================================
+           RESUMO
+        ================================= */
+
+        .resumo {
+            background:
+                rgba(14, 4, 56, 0.95);
+
+            border-radius: 15px;
+
+            padding: 25px;
+
+            height: fit-content;
+
+            position: sticky;
+            top: 20px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0, 0, 0, 0.3);
+        }
+
+
+        .resumo h2 {
+            margin-top: 0;
+
+            border-bottom:
+                1px solid
+                rgba(255, 255, 255, 0.2);
+
+            padding-bottom: 15px;
+        }
+
+
+        .linha {
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            margin: 15px 0;
+
+            color: #d8d8ff;
+        }
+
+
+        .total {
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            margin-top: 20px;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid
+                rgba(255, 255, 255, 0.25);
+        }
+
+
+        /* ================================
+           BOTÃO FINALIZAR
+        ================================= */
+
+        .finalizar {
+            width: 100%;
+
+            border: none;
+
+            border-radius: 10px;
+
+            padding: 15px;
+
+            margin-top: 25px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #3155ff,
+                    #8e44ad
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .finalizar:hover {
+            transform: scale(1.03);
+
+            box-shadow:
+                0 5px 20px
+                rgba(80, 70, 255, 0.5);
+        }
+
+
+        /* ================================
+           CONTINUAR COMPRANDO
+        ================================= */
+
+        .continuar {
+            display: block;
+
+            text-align: center;
+
+            margin-top: 18px;
+
+            color: #bfc7ff;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+
+        .continuar:hover {
+            color: white;
+        }
+
+
+        /* ================================
+           CARRINHO VAZIO
+        ================================= */
+
+        .vazio {
+            background:
+                rgba(14, 4, 56, 0.9);
+
+            border-radius: 15px;
+
+            padding: 50px 20px;
+
+            text-align: center;
+        }
+
+
+        .vazio h2 {
+            margin-bottom: 10px;
+        }
+
+
+        .vazio p {
+            color: #d7d7ff;
+        }
+
+
+        .vazio a {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            background: #3155ff;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .vazio a:hover {
+            transform: scale(1.05);
+
+            background: #4b68ff;
+        }
+
+
+        /* ==================================================
+           ÁREA DE PAGAMENTO
+        ================================================== */
+
+        .area-pagamento {
+            width: 90%;
+            max-width: 900px;
+
+            margin: 40px auto 70px;
+        }
+
+
+        .pagamento-caixa {
+            background:
+                rgba(14, 4, 56, 0.96);
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0, 0, 0, 0.35);
+        }
+
+
+        /* BOTÃO VOLTAR */
+
+        .voltar-carrinho {
+            border: none;
+
+            background:
+                rgba(255, 255, 255, 0.1);
+
+            color: white;
+
+            padding: 10px 15px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .voltar-carrinho:hover {
+            background:
+                rgba(255, 255, 255, 0.2);
+
+            transform: translateX(-3px);
+        }
+
+
+        /* TÍTULO */
+
+        .titulo-pagamento {
+            text-align: center;
+
+            margin:
+                25px 0;
+        }
+
+
+        .titulo-pagamento span {
+            color: #9d8cff;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+
+        .titulo-pagamento h1 {
+            margin:
+                8px 0;
+
+            font-size: 32px;
+        }
+
+
+        .titulo-pagamento p {
+            color: #cfcfff;
+        }
+
+
+        /* OPÇÕES */
+
+        .opcoes-pagamento {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .opcao-pagamento {
+            border: 2px solid
+                rgba(255, 255, 255, 0.15);
+
+            background:
+                rgba(255, 255, 255, 0.05);
+
+            color: white;
+
+            padding: 18px;
+
+            border-radius: 12px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            font-size: 15px;
+        }
+
+
+        .opcao-pagamento:hover {
+            border-color: #7567ff;
+
+            transform: translateY(-2px);
+        }
+
+
+        .opcao-pagamento.ativo {
+            border-color: #7567ff;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(49, 85, 255, 0.35),
+                    rgba(142, 68, 173, 0.35)
+                );
+
+            box-shadow:
+                0 5px 20px
+                rgba(80, 70, 255, 0.25);
+        }
+
+
+        /* FORMULÁRIOS */
+
+        .formulario-pagamento {
+            display: none;
+
+            animation:
+                aparecer 0.3s ease;
+        }
+
+
+        .formulario-pagamento.ativo {
+            display: block;
+        }
+
+
+        .formulario-pagamento h2 {
+            margin-bottom: 5px;
+        }
+
+
+        .descricao-pagamento {
+            color: #cfcfff;
+
+            margin-top: 5px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .formulario-pagamento label {
+            display: block;
+
+            margin:
+                15px 0 7px;
+
+            font-weight: bold;
+
+            color: #e8e8ff;
+        }
+
+
+        .formulario-pagamento input,
+        .formulario-pagamento select {
+            width: 100%;
+
+            padding: 14px;
+
+            border: 1px solid
+                rgba(255, 255, 255, 0.2);
+
+            border-radius: 9px;
+
+            background:
+                rgba(255, 255, 255, 0.08);
+
+            color: white;
+
+            outline: none;
+
+            font-size: 15px;
+        }
+
+
+        .formulario-pagamento input::placeholder {
+            color: #aaaad0;
+        }
+
+
+        .formulario-pagamento input:focus,
+        .formulario-pagamento select:focus {
+            border-color: #7567ff;
+
+            box-shadow:
+                0 0 0 2px
+                rgba(117, 103, 255, 0.15);
+        }
+
+
+        .formulario-pagamento select option {
+            color: black;
+        }
+
+
+        /* CAMPOS DUPLOS */
+
+        .campos-duplos {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 15px;
+        }
+
+
+        /* BOTÃO PAGAR */
+
+        .botao-pagar {
+            width: 100%;
+
+            border: none;
+
+            border-radius: 10px;
+
+            padding: 15px;
+
+            margin-top: 25px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #3155ff,
+                    #8e44ad
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .botao-pagar:hover {
+            transform: scale(1.02);
+
+            box-shadow:
+                0 5px 20px
+                rgba(80, 70, 255, 0.5);
+        }
+
+
+        /* ================================
+           PIX
+        ================================= */
+
+        .pix-container {
+            text-align: center;
+
+            padding: 20px;
+
+            background:
+                rgba(255, 255, 255, 0.04);
+
+            border-radius: 15px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .qr-falso {
+            width: 190px;
+            height: 190px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 10px;
+
+            background:
+                repeating-linear-gradient(
+                    45deg,
+                    white 0,
+                    white 5px,
+                    black 5px,
+                    black 10px
+                );
+
+            border: 8px solid white;
+        }
+
+
+        .qr-texto {
+            width: 80px;
+            height: 80px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: white;
+
+            color: #5d32a8;
+
+            font-size: 22px;
+
+            font-weight: bold;
+
+            border-radius: 10px;
+        }
+
+
+        .pix-container h3 {
+            margin-bottom: 5px;
+        }
+
+
+        .pix-container p {
+            color: #bdbddd;
+
+            font-size: 14px;
+        }
+
+
+        .pix-codigo {
+            display: flex;
+
+            gap: 10px;
+        }
+
+
+        .pix-codigo input {
+            flex: 1;
+        }
+
+
+        .pix-codigo button {
+            border: none;
+
+            background: #673ab7;
+
+            color: white;
+
+            padding: 0 20px;
+
+            border-radius: 9px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .pix-codigo button:hover {
+            background: #7e57c2;
+        }
+
+
+        /* ================================
+           TOTAL PAGAMENTO
+        ================================= */
+
+        .total-pagamento {
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            margin-top: 30px;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid
+                rgba(255, 255, 255, 0.2);
+
+            font-size: 18px;
+        }
+
+
+        .total-pagamento strong {
+            font-size: 25px;
+
+            color: #ffffff;
+        }
+
+
+        /* ANIMAÇÃO */
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform:
+                    translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        /* ================================
+           RESPONSIVO
+        ================================= */
+
+        @media (max-width: 800px) {
+
+            .conteudo {
+                grid-template-columns: 1fr;
+            }
+
+
+            .resumo {
+                position: static;
+            }
+
+
+            .opcoes-pagamento {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .menu {
+                gap: 15px;
+
+                flex-wrap: wrap;
+            }
+
+
+            .produto {
+                grid-template-columns:
+                    80px 1fr;
+            }
+
+
+            .produto img {
+                width: 80px;
+                height: 80px;
+            }
+
+
+            .produto-acoes {
+                grid-column: 2;
+            }
+
+
+            .campos-duplos {
+                grid-template-columns: 1fr;
+            }
+
+
+            .pagamento-caixa {
+                padding: 20px;
+            }
+
+
+            .pix-codigo {
+                flex-direction: column;
+            }
+
+
+            .pix-codigo button {
+                padding: 14px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================
+         BARRA SUPERIOR
+    ================================= -->
+
+    <div class="barra-topo">
+
+        FRETE GRÁTIS PARA TODO O PAÍS 🚚
+
+    </div>
+
+
+    <!-- ================================
+         LOGO
+    ================================= -->
+
+    <header>
+
+        <img
+            src="../Imagens/logo site original.png"
+            alt="Logo da Futbol Store"
+        >
+
+    </header>
+
+
+    <!-- ================================
+         MENU
+    ================================= -->
+
+    <nav class="menu">
+
+        <a
+            href="../Página de Início/inicio.html"
+        >
+            INÍCIO
+        </a>
+
+        <a
+            href="../Página de Produtos/produtos.html"
+        >
+            PRODUTOS
+        </a>
+
+        <a
+            href="../Página de Promoções/promocoes.html"
+        >
+            PROMOÇÕES
+        </a>
+
+        <a
+            href="../Página de Contatos/contato.html"
+        >
+            CONTATO
+        </a>
+
+    </nav>
+
+
+    <!-- ================================
+         TÍTULO
+    ================================= -->
+
+    <div class="titulo">
+
+        <h1>
+            🛒 Meu Carrinho
+        </h1>
+
+        <p>
+            Confira seus produtos antes de finalizar a compra.
+        </p>
+
+    </div>
+
+
+    <!-- ================================
+         CARRINHO
+    ================================= -->
+
+    <main class="conteudo">
+
+
+        <!-- PRODUTOS -->
+
+        <section
+            class="lista-produtos"
+            id="listaProdutos"
+        >
+
+        </section>
+
+
+        <!-- RESUMO -->
+
+        <aside
+            class="resumo"
+            id="resumo"
+        >
+
+            <h2>
+                Resumo da compra
+            </h2>
+
+
+            <div class="linha">
+
+                <span>
+                    Produtos
+                </span>
+
+                <span id="quantidadeTotal">
+                    0
+                </span>
+
+            </div>
+
+
+            <div class="linha">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <span id="subtotal">
+                    R$ 0,00
+                </span>
+
+            </div>
+
+
+            <div class="linha">
+
+                <span>
+                    Frete
+                </span>
+
+                <span>
+                    GRÁTIS
+                </span>
+
+            </div>
+
+
+            <div class="total">
+
+                <span>
+                    Total
+                </span>
+
+                <span id="total">
+                    R$ 0,00
+                </span>
+
+            </div>
+
+
+            <button
+                class="finalizar"
+                onclick="finalizarCompra()"
+            >
+
+                💳 FINALIZAR COMPRA
+
+            </button>
+
+
+            <a
+                class="continuar"
+                href="../Página de Produtos/produtos.html"
+            >
+
+                ← Continuar comprando
+
+            </a>
+
+        </aside>
+
+    </main>
+
+
+    <!-- ==================================================
+         ÁREA DE PAGAMENTO
+    ================================================== -->
+
+    <section
+        id="areaPagamento"
+        class="area-pagamento"
+        style="display: none;"
+    >
+
+        <div class="pagamento-caixa">
+
+
+            <!-- VOLTAR -->
+
+            <button
+                class="voltar-carrinho"
+                onclick="voltarCarrinho()"
+            >
+
+                ← Voltar para o carrinho
+
+            </button>
+
+
+            <!-- TÍTULO -->
+
+            <div class="titulo-pagamento">
+
+                <span>
+                    PAGAMENTO
+                </span>
+
+                <h1>
+                    Finalizar compra
+                </h1>
+
+                <p>
+                    Escolha uma forma de pagamento
+                </p>
+
+            </div>
+
+
+            <!-- ================================
+                 OPÇÕES DE PAGAMENTO
+            ================================= -->
+
+            <div class="opcoes-pagamento">
+
+
+                <button
+                    type="button"
+                    class="opcao-pagamento ativo"
+                    onclick="mostrarPagamento('credito', this)"
+                >
+
+                    💳
+
+                    <strong>
+                        Crédito
+                    </strong>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="opcao-pagamento"
+                    onclick="mostrarPagamento('debito', this)"
+                >
+
+                    💳
+
+                    <strong>
+                        Débito
+                    </strong>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="opcao-pagamento"
+                    onclick="mostrarPagamento('pix', this)"
+                >
+
+                    🟣
+
+                    <strong>
+                        Pix
+                    </strong>
+
+                </button>
+
+
+            </div>
+
+
+            <!-- ================================
+                 CRÉDITO
+            ================================= -->
+
+            <div
+                id="pagamentoCredito"
+                class="formulario-pagamento ativo"
+            >
+
+                <h2>
+                    💳 Cartão de crédito
+                </h2>
+
+
+                <p class="descricao-pagamento">
+
+                    Preencha os dados do cartão.
+
+                </p>
+
+
+                <label>
+                    Número do cartão
+                </label>
+
+
+                <input
+                    type="text"
+                    id="numeroCredito"
+                    maxlength="19"
+                    placeholder="0000 0000 0000 0000"
+                    oninput="formatarCartao(this)"
+                >
+
+
+                <label>
+                    Nome no cartão
+                </label>
+
+
+                <input
+                    type="text"
+                    id="nomeCredito"
+                    placeholder="NOME COMPLETO"
+                >
+
+
+                <div class="campos-duplos">
+
+
+                    <div>
+
+                        <label>
+                            Validade
+                        </label>
+
+                        <input
+                            type="text"
+                            id="validadeCredito"
+                            maxlength="5"
+                            placeholder="MM/AA"
+                            oninput="formatarValidade(this)"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            CVV
+                        </label>
+
+                        <input
+                            type="password"
+                            id="cvvCredito"
+                            maxlength="4"
+                            placeholder="123"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <label>
+                    Parcelamento
+                </label>
+
+
+                <select id="parcelasCredito">
+
+                    <option value="1">
+                        1x sem juros
+                    </option>
+
+                    <option value="2">
+                        2x sem juros
+                    </option>
+
+                    <option value="3">
+                        3x sem juros
+                    </option>
+
+                    <option value="6">
+                        6x sem juros
+                    </option>
+
+                    <option value="10">
+                        10x sem juros
+                    </option>
+
+                    <option value="12">
+                        12x sem juros
+                    </option>
+
+                </select>
+
+
+                <button
+                    type="button"
+                    class="botao-pagar"
+                    onclick="confirmarPagamento('crédito')"
+                >
+
+                    PAGAR
+
+                </button>
+
+
+            </div>
+
+
+            <!-- ================================
+                 DÉBITO
+            ================================= -->
+
+            <div
+                id="pagamentoDebito"
+                class="formulario-pagamento"
+            >
+
+                <h2>
+                    💳 Cartão de débito
+                </h2>
+
+
+                <p class="descricao-pagamento">
+
+                    Preencha os dados do cartão.
+
+                </p>
+
+
+                <label>
+                    Número do cartão
+                </label>
+
+
+                <input
+                    type="text"
+                    id="numeroDebito"
+                    maxlength="19"
+                    placeholder="0000 0000 0000 0000"
+                    oninput="formatarCartao(this)"
+                >
+
+
+                <label>
+                    Nome no cartão
+                </label>
+
+
+                <input
+                    type="text"
+                    id="nomeDebito"
+                    placeholder="NOME COMPLETO"
+                >
+
+
+                <div class="campos-duplos">
+
+
+                    <div>
+
+                        <label>
+                            Validade
+                        </label>
+
+                        <input
+                            type="text"
+                            id="validadeDebito"
+                            maxlength="5"
+                            placeholder="MM/AA"
+                            oninput="formatarValidade(this)"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            CVV
+                        </label>
+
+                        <input
+                            type="password"
+                            id="cvvDebito"
+                            maxlength="4"
+                            placeholder="123"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="botao-pagar"
+                    onclick="confirmarPagamento('débito')"
+                >
+
+                    PAGAR
+
+                </button>
+
+
+            </div>
+
+
+            <!-- ================================
+                 PIX
+            ================================= -->
+
+            <div
+                id="pagamentoPix"
+                class="formulario-pagamento"
+            >
+
+                <h2>
+                    🟣 Pagamento via Pix
+                </h2>
+
+
+                <p class="descricao-pagamento">
+
+                    Copie o código Pix abaixo para realizar
+                    o pagamento.
+
+                </p>
+
+
+                <div class="pix-container">
+
+
+                    <div class="qr-falso">
+
+                        <div class="qr-texto">
+                            PIX
+                        </div>
+
+                    </div>
+
+
+                    <h3>
+                        QR Code de demonstração
+                    </h3>
+
+
+                    <p>
+
+                        Este QR Code é apenas visual,
+                        pois sua loja é uma simulação.
+
+                    </p>
+
+
+                </div>
+
+
+                <label>
+                    Código Pix copia e cola
+                </label>
+
+
+                <div class="pix-codigo">
+
+
+                    <input
+                        type="text"
+                        id="codigoPix"
+                        readonly
+                        value="00020126580014BR.GOV.BCB.PIX0136FUTBOLSTORE-DEMO520400005303986540599.995802BR5920FUTBOL STORE6009SAO PAULO62070503***6304DEMO"
+                    >
+
+
+                    <button
+                        type="button"
+                        onclick="copiarPix()"
+                    >
+
+                        COPIAR
+
+                    </button>
+
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="botao-pagar"
+                    onclick="confirmarPagamento('Pix')"
+                >
+
+                    CONFIRMAR PIX
+
+                </button>
+
+
+            </div>
+
+
+            <!-- ================================
+                 TOTAL
+            ================================= -->
+
+            <div class="total-pagamento">
+
+                <span>
+                    Total da compra
+                </span>
+
+                <strong id="pagamentoTotal">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+    ================================================== -->
+
+    <script>
+
+
+        // =====================================
+        // CARREGA O CARRINHO
+        // =====================================
+
+        let carrinho =
+            JSON.parse(
+                localStorage.getItem("carrinho")
+            ) || [];
+
+
+        // =====================================
+        // MOSTRA OS PRODUTOS
+        // =====================================
+
+        function mostrarCarrinho() {
+
+            const lista =
+                document.getElementById(
+                    "listaProdutos"
+                );
+
+
+            lista.innerHTML = "";
+
+
+            if (carrinho.length === 0) {
+
+                document.getElementById(
+                    "resumo"
+                ).style.display = "none";
+
+
+                lista.innerHTML = `
+
+                    <div class="vazio">
+
+                        <h2>
+                            🛒 Seu carrinho está vazio
+                        </h2>
+
+                        <p>
+                            Você ainda não adicionou nenhum produto.
+                        </p>
+
+                        <a
+                            href="../Página de Produtos/produtos.html"
+                        >
+                            VER PRODUTOS
+                        </a>
+
+                    </div>
+
+                `;
+
+
+                return;
+            }
+
+
+            document.getElementById(
+                "resumo"
+            ).style.display = "block";
+
+
+            carrinho.forEach(
+                function(produto, indice) {
+
+
+                    if (!produto.quantidade) {
+                        produto.quantidade = 1;
+                    }
+
+
+                    const item =
+                        document.createElement("div");
+
+
+                    item.className =
+                        "produto";
+
+
+                    item.innerHTML = `
+
+                        <img
+                            src="${produto.imagem}"
+                            alt="${produto.nome}"
+                        >
+
+
+                        <div class="produto-info">
+
+                            <h2>
+                                ${produto.nome}
+                            </h2>
+
+
+                            <p>
+                                Categoria:
+                                ${produto.categoria || "Produto"}
+                            </p>
+
+
+                            <p>
+                                Tamanho:
+                                ${produto.tamanho || "Não selecionado"}
+                            </p>
+
+
+                            <p class="preco">
+                                ${produto.preco}
+                            </p>
+
+
+                            <div class="quantidade">
+
+                                <span class="texto-quantidade">
+                                    Quantidade:
+                                </span>
+
+
+                                <button
+                                    type="button"
+                                    class="botao-quantidade"
+                                    onclick="alterarQuantidade(${indice}, -1)"
+                                >
+                                    −
+                                </button>
+
+
+                                <span class="numero-quantidade">
+                                    ${produto.quantidade}
+                                </span>
+
+
+                                <button
+                                    type="button"
+                                    class="botao-quantidade"
+                                    onclick="alterarQuantidade(${indice}, 1)"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="produto-acoes">
+
+                            <button
+                                type="button"
+                                class="remover"
+                                onclick="removerProduto(${indice})"
+                            >
+
+                                🗑️ Remover
+
+                            </button>
+
+                        </div>
+
+                    `;
+
+
+                    lista.appendChild(item);
+
+                }
+            );
+
+
+            atualizarResumo();
+
+
+            localStorage.setItem(
+                "carrinho",
+                JSON.stringify(carrinho)
+            );
+
+        }
+
+
+        // =====================================
+        // ALTERAR QUANTIDADE
+        // =====================================
+
+        function alterarQuantidade(
+            indice,
+            valor
+        ) {
+
+            carrinho[indice].quantidade += valor;
+
+
+            if (
+                carrinho[indice].quantidade < 1
+            ) {
+
+                carrinho[indice].quantidade = 1;
+
+            }
+
+
+            localStorage.setItem(
+                "carrinho",
+                JSON.stringify(carrinho)
+            );
+
+
+            mostrarCarrinho();
+
+        }
+
+
+        // =====================================
+        // REMOVER PRODUTO
+        // =====================================
+
+        function removerProduto(indice) {
+
+            carrinho.splice(indice, 1);
+
+
+            localStorage.setItem(
+                "carrinho",
+                JSON.stringify(carrinho)
+            );
+
+
+            mostrarCarrinho();
+
+        }
+
+
+        // =====================================
+        // CONVERTE PREÇO
+        // =====================================
+
+        function converterPreco(preco) {
+
+            if (typeof preco === "number") {
+                return preco;
+            }
+
+
+            return parseFloat(
+
+                String(preco)
+                    .replace("R$", "")
+                    .replace(/\./g, "")
+                    .replace(",", ".")
+                    .trim()
+
+            ) || 0;
+
+        }
+
+
+        // =====================================
+        // ATUALIZA O RESUMO
+        // =====================================
+
+        function atualizarResumo() {
+
+            let quantidadeTotal = 0;
+
+            let total = 0;
+
+
+            carrinho.forEach(
+                function(produto) {
+
+
+                    quantidadeTotal +=
+                        produto.quantidade || 1;
+
+
+                    const preco =
+                        converterPreco(
+                            produto.preco
+                        );
+
+
+                    total +=
+                        preco *
+                        (produto.quantidade || 1);
+
+                }
+            );
+
+
+            document.getElementById(
+                "quantidadeTotal"
+            ).textContent =
+                quantidadeTotal;
+
+
+            document.getElementById(
+                "subtotal"
+            ).textContent =
+                formatarPreco(total);
+
+
+            document.getElementById(
+                "total"
+            ).textContent =
+                formatarPreco(total);
+
+        }
+
+
+        // =====================================
+        // FORMATA PREÇO
+        // =====================================
+
+        function formatarPreco(valor) {
+
+            return valor.toLocaleString(
+                "pt-BR",
+                {
+                    style: "currency",
+                    currency: "BRL"
+                }
+            );
+
+        }
+
+
+        // =====================================
+        // FINALIZAR COMPRA
+        // =====================================
+
+        function finalizarCompra() {
+
+
+            if (carrinho.length === 0) {
+
+                alert(
+                    "Seu carrinho está vazio."
+                );
+
+                return;
+            }
+
+
+            // Esconde o carrinho
+
+            document.querySelector(
+                ".conteudo"
+            ).style.display = "none";
+
+
+            // Esconde o título
+
+            document.querySelector(
+                ".titulo"
+            ).style.display = "none";
+
+
+            // Mostra pagamento
+
+            document.getElementById(
+                "areaPagamento"
+            ).style.display = "block";
+
+
+            // Calcula total
+
+            let total = 0;
+
+
+            carrinho.forEach(
+                function(produto) {
+
+                    const preco =
+                        converterPreco(
+                            produto.preco
+                        );
+
+
+                    total +=
+                        preco *
+                        (produto.quantidade || 1);
+
+                }
+            );
+
+
+            document.getElementById(
+                "pagamentoTotal"
+            ).textContent =
+                formatarPreco(total);
+
+
+            // Vai para o topo
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        // =====================================
+        // TROCAR FORMA DE PAGAMENTO
+        // =====================================
+
+        function mostrarPagamento(
+            tipo,
+            botao
+        ) {
+
+
+            document
+                .querySelectorAll(
+                    ".opcao-pagamento"
+                )
+                .forEach(
+                    function(item) {
+
+                        item.classList.remove(
+                            "ativo"
+                        );
+
+                    }
+                );
+
+
+            botao.classList.add("ativo");
+
+
+            document
+                .querySelectorAll(
+                    ".formulario-pagamento"
+                )
+                .forEach(
+                    function(formulario) {
+
+                        formulario.classList.remove(
+                            "ativo"
+                        );
+
+                    }
+                );
+
+
+            if (tipo === "credito") {
+
+                document
+                    .getElementById(
+                        "pagamentoCredito"
+                    )
+                    .classList.add("ativo");
+
+            }
+
+
+            if (tipo === "debito") {
+
+                document
+                    .getElementById(
+                        "pagamentoDebito"
+                    )
+                    .classList.add("ativo");
+
+            }
+
+
+            if (tipo === "pix") {
+
+                document
+                    .getElementById(
+                        "pagamentoPix"
+                    )
+                    .classList.add("ativo");
+
+            }
+
+        }
+
+
+        // =====================================
+        // FORMATA CARTÃO
+        // =====================================
+
+        function formatarCartao(input) {
+
+            let valor =
+                input.value
+                    .replace(/\D/g, "")
+                    .substring(0, 16);
+
+
+            valor =
+                valor.replace(
+                    /(\d{4})(?=\d)/g,
+                    "$1 "
+                );
+
+
+            input.value = valor;
+
+        }
+
+
+        // =====================================
+        // FORMATA VALIDADE
+        // =====================================
+
+        function formatarValidade(input) {
+
+            let valor =
+                input.value
+                    .replace(/\D/g, "")
+                    .substring(0, 4);
+
+
+            if (valor.length > 2) {
+
+                valor =
+                    valor.substring(0, 2) +
+                    "/" +
+                    valor.substring(2);
+
+            }
+
+
+            input.value = valor;
+
+        }
+
+
+        // =====================================
+        // COPIAR PIX
+        // =====================================
+
+        function copiarPix() {
+
+            const codigo =
+                document.getElementById(
+                    "codigoPix"
+                );
+
+
+            if (
+                navigator.clipboard &&
+                navigator.clipboard.writeText
+            ) {
+
+                navigator.clipboard
+                    .writeText(codigo.value)
+                    .then(
+                        function() {
+
+                            alert(
+                                "Código Pix copiado!"
+                            );
+
+                        }
+                    )
+                    .catch(
+                        function() {
+
+                            copiarPixAlternativo(
+                                codigo
+                            );
+
+                        }
+                    );
+
+            } else {
+
+                copiarPixAlternativo(
+                    codigo
+                );
+
+            }
+
+        }
+
+
+        // =====================================
+        // CÓPIA ALTERNATIVA
+        // =====================================
+
+        function copiarPixAlternativo(codigo) {
+
+            codigo.select();
+
+            codigo.setSelectionRange(
+                0,
+                99999
+            );
+
+
+            document.execCommand(
+                "copy"
+            );
+
+
+            alert(
+                "Código Pix copiado!"
+            );
+
+        }
+
+
+        // =====================================
+        // CONFIRMAR PAGAMENTO
+        // =====================================
+
+        function confirmarPagamento(
+            metodo
+        ) {
+
+
+            if (metodo === "crédito") {
+
+                const numero =
+                    document.getElementById(
+                        "numeroCredito"
+                    ).value;
+
+
+                const nome =
+                    document.getElementById(
+                        "nomeCredito"
+                    ).value;
+
+
+                const validade =
+                    document.getElementById(
+                        "validadeCredito"
+                    ).value;
+
+
+                const cvv =
+                    document.getElementById(
+                        "cvvCredito"
+                    ).value;
+
+
+                if (
+                    numero.length < 19 ||
+                    nome.trim() === "" ||
+                    validade.length < 5 ||
+                    cvv.length < 3
+                ) {
+
+                    alert(
+                        "Preencha todos os dados do cartão de crédito."
+                    );
+
+                    return;
+
+                }
+
+            }
+
+
+            if (metodo === "débito") {
+
+                const numero =
+                    document.getElementById(
+                        "numeroDebito"
+                    ).value;
+
+
+                const nome =
+                    document.getElementById(
+                        "nomeDebito"
+                    ).value;
+
+
+                const validade =
+                    document.getElementById(
+                        "validadeDebito"
+                    ).value;
+
+
+                const cvv =
+                    document.getElementById(
+                        "cvvDebito"
+                    ).value;
+
+
+                if (
+                    numero.length < 19 ||
+                    nome.trim() === "" ||
+                    validade.length < 5 ||
+                    cvv.length < 3
+                ) {
+
+                    alert(
+                        "Preencha todos os dados do cartão de débito."
+                    );
+
+                    return;
+
+                }
+
+            }
+
+
+            // Simulação
+
+            alert(
+                "Pagamento via " +
+                metodo +
+                " confirmado!\n\n" +
+                "Esta é uma simulação da Futbol Store."
+            );
+
+
+            // Limpa o carrinho
+
+            localStorage.removeItem(
+                "carrinho"
+            );
+
+
+            // Volta para o carrinho vazio
+
+            carrinho = [];
+
+
+            document.getElementById(
+                "areaPagamento"
+            ).style.display = "none";
+
+
+            document.querySelector(
+                ".conteudo"
+            ).style.display = "grid";
+
+
+            document.querySelector(
+                ".titulo"
+            ).style.display = "block";
+
+
+            mostrarCarrinho();
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        // =====================================
+        // VOLTAR PARA O CARRINHO
+        // =====================================
+
+        function voltarCarrinho() {
+
+            document.getElementById(
+                "areaPagamento"
+            ).style.display = "none";
+
+
+            document.querySelector(
+                ".conteudo"
+            ).style.display = "grid";
+
+
+            document.querySelector(
+                ".titulo"
+            ).style.display = "block";
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        // =====================================
+        // INICIA
+        // =====================================
+
+        mostrarCarrinho();
+
+
+    </script>
+
+
+</body>
+
+</html>

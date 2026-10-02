@@ -1,0 +1,50 @@
+/* PRODUTO NO PAGAMENTO */
+
+.produto-pagamento {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    background-color: #11143a;
+
+    border: 1px solid #29295a;
+    border-radius: 12px;
+
+    padding: 15px;
+    margin-bottom: 25px;
+
+    animation: aparecer 0.5s ease;
+}
+
+.produto-pagamento img {
+    width: 10px;
+    height: 10px;
+    object-fit: contain;
+    border-radius: 10px;
+    background-color: white;
+}
+
+
+.produto-info {
+    flex: 1;
+}
+
+.produto-info h2 {
+    margin: 0 0 6px;
+
+    font-size: 18px;
+}
+
+.produto-info p {
+    margin: 0 0 8px;
+
+    color: #aaa;
+}
+
+.produto-info h3 {
+    margin: 0;
+
+    color: #c084fc;
+
+    font-size: 20px;
+}

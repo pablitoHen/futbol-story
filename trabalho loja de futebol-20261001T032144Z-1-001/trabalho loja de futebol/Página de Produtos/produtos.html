@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Produtos - Minha Loja</title>
+
+    <link
+        rel="stylesheet"
+        href="produtos.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- BARRA SUPERIOR -->
+
+    <div class="barra-topo">
+
+        FRETE GRÁTIS PARA TODO O PAÍS 🚚
+
+    </div>
+
+
+
+    <!-- CABEÇALHO -->
+
+    <header>
+
+        <img
+            src="../Imagens/logo da loja azul.jpeg"
+            alt="Logo da loja"
+        >
+
+
+        <input
+            type="text"
+            id="pesquisa"
+            placeholder="O que você procura?"
+            onkeyup="filtrarProdutos()"
+        >
+
+    </header>
+
+
+
+    <!-- MENU -->
+
+    <nav class="menu">
+
+        <a href="../Página de Início/inicio.html">
+            INÍCIO
+        </a>
+
+        <a href="produtos.html">
+            PRODUTOS
+        </a>
+
+        <!-- ATUALIZAÇÃO 01/09 - LINK PARA A NOVA PÁGINA DE PROMOÇÕES -->
+        <a href="../Página de Promoções/promocoes.html">
+            PROMOÇÕES
+        </a>
+
+        <a href="../Página de Contatos/contato.html">
+            CONTATO
+        </a>
+
+    </nav>
+
+
+
+    <!-- CATEGORIAS -->
+
+    <div class="area-categorias">
+
+
+        <button
+            class="botao-categorias"
+            onclick="abrirCategorias()"
+        >
+
+            CATEGORIAS ▼
+
+        </button>
+
+
+        <div
+            class="menu-categorias"
+            id="menuCategorias"
+        >
+
+
+            <button
+                onclick="filtrarCategoria('todos')"
+            >
+                TODOS
+            </button>
+
+
+            <button
+                onclick="filtrarCategoria('CAMISAS')"
+            >
+                CAMISAS
+            </button>
+
+
+            <button
+                onclick="filtrarCategoria('INVERNO')"
+            >
+                INVERNO
+            </button>
+
+
+            <button
+                onclick="filtrarCategoria('CHUTEIRAS')"
+            >
+                CHUTEIRAS
+            </button>
+
+
+            <button
+                onclick="filtrarCategoria('OUTROS')"
+            >
+                OUTROS
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PRODUTOS -->
+
+    <main class="produtos">
+
+
+        <!-- PRODUTO 1 -->
+
+        <div
+            class="produto"
+            data-categoria="INVERNO"
+            onclick="abrirProduto(1)"
+        >
+
+            <img
+                src="/trabalho loja de futebol/Imagens/camisa sp.jpeg"
+                alt="Conjunto Do Sao Paulo"
+                loading="lazy"
+            >
+
+            <h2>
+                Conjunto do São Paulo para o inverno
+            </h2>
+
+            <p>
+                R$ 499,99
+            </p>
+
+            <button>
+                Ver produto
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUTO 2 -->
+
+        <div
+            class="produto"
+            data-categoria="CAMISAS"
+            onclick="abrirProduto(2)"
+        >
+
+            <img
+                src="/trabalho loja de futebol/Imagens/camisa frente botafogo.jpeg"
+                alt="camisa do Bota Fogo"
+                loading="lazy"
+            >
+
+            <h2>
+                Camisa Do botafogo
+            </h2>
+
+            <p>
+                R$ 350,00
+            </p>
+
+            <button>
+                Ver produto
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUTO 3 -->
+
+        <div
+            class="produto"
+            data-categoria="CAMISAS"
+            onclick="abrirProduto(3)"
+        >
+
+            <img
+                src="/trabalho loja de futebol/Imagens/camisa dobrada sao paulo.jpeg"
+                alt="camisa do Sao Paulo"
+                loading="lazy"
+            >
+
+            <h2>
+                Camisa do Sao Paulo
+            </h2>
+
+            <p>
+                R$ 359,99
+            </p>
+
+            <button>
+                Ver produto
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUTO 4 -->
+
+        <div
+            class="produto"
+            data-categoria="CAMISAS"
+            onclick="abrirProduto(4)"
+        >
+
+            <img
+                src="/trabalho loja de futebol/Imagens/camisa do corinthias.jpeg"
+                alt="Camisa Do Corinthias"
+                loading="lazy"
+            >
+
+            <h2>
+                Camisa Do Corinthians
+            </h2>
+
+            <p>
+                R$ 399,99
+            </p>
+
+            <button>
+                Ver produto
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUTO 5 -->
+
+        <div
+            class="produto"
+            data-categoria="CHUTEIRAS"
+            onclick="abrirProduto(5)"
+        >
+
+            <img
+                src="/trabalho loja de futebol/Imagens/chuteira umbro com fundo.jpeg"
+                alt="chuteira da Umbro"
+                loading="lazy"
+            >
+
+            <h2>
+                chuteira da Umbro
+            </h2>
+
+            <p>
+                R$ 1.199,99
+            </p>
+
+            <button>
+                Ver produto
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUTO 6 -->
+
+        <div
+            class="produto"
+            data-categoria="OUTROS"
+            onclick="abrirProduto(6)"
+        >
+
+            <img
+                src="/trabalho loja de futebol/Imagens/meiao da umbro.jpeg"
+                alt="Meiões Da Umbro"
+                loading="lazy"
+            >
+
+            <h2>
+                Meiões Da Umbro
+            </h2>
+
+            <p>
+                R$ 59.99
+            </p>
+
+            <button>
+                Ver produto
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUTO 7 -->
+
+        <div
+            class="produto"
+            data-categoria="INVERNO"
+            onclick="abrirProduto(7)"
+        >
+
+            <img
+                src="/trabalho loja de futebol/Imagens/f botafogo.jpeg"
+                alt="Conjunto Do BotaFogo"
+                loading="lazy"
+            >
+
+            <h2>
+              Conjunto Do Botafogo
+            </h2>
+
+            <p>
+                R$ 190,00
+            </p>
+
+            <button>
+                Ver produto
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUTO 8 -->
+
+        <div
+            class="produto"
+            data-categoria="CHUTEIRAS"
+            onclick="abrirProduto(8)"
+        >
+
+            <img
+                src="/trabalho loja de futebol/Imagens/chuteira puma com fundo.jpeg"
+                alt="Chuteira Da Puma"
+                loading="lazy"
+            >
+
+            <h2>
+                Chuteira Da Puma
+            </h2>
+
+            <p>
+                R$ 481,55
+            </p>
+
+            <button>
+                Ver produto
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUTO 9 -->
+
+        <div
+            class="produto"
+            data-categoria="OUTROS"
+            onclick="abrirProduto(9)"
+        >
+
+            <img
+                src="/trabalho loja de futebol/Imagens/caixa e p corinthias.jpeg"
+                alt="Perfume Do Corinthias"
+                loading="lazy"
+            >
+
+            <h2>
+                Perfume Do Corinthias
+            </h2>
+
+            <p>
+                R$ 99,99
+            </p>
+
+            <button>
+                Ver produto
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUTO 10 -->
+
+        <div
+            class="produto"
+            data-categoria="OUTROS"
+            onclick="abrirProduto(10)"
+        >
+
+            <img
+                src="/trabalho loja de futebol/Imagens/caneleira umbro.jpeg"
+                alt="Caneleira Da Umbro"
+                loading="lazy"
+            >
+
+            <h2>
+                Caneleira da Umbro
+            </h2>
+
+            <p>
+                R$ 59,99
+            </p>
+
+            <button>
+                Ver produto
+            </button>
+
+        </div>
+
+
+    </main>
+
+
+
+    <script src="produtos.js"></script>
+
+
+</body>
+
+</html>

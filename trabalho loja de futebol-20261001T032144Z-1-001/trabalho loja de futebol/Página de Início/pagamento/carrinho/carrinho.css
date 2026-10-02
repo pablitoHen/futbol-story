@@ -1,0 +1,540 @@
+
+/* ================================
+   CONFIGURAÇÃO GERAL
+================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #07002b,
+            #172b8f,
+            #673ab7
+        );
+}
+
+
+/* ================================
+   BARRA SUPERIOR
+================================ */
+
+.barra-topo {
+    background: #0e0438;
+
+    text-align: center;
+
+    padding: 10px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+/* ================================
+   LOGO
+================================ */
+
+header {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+}
+
+header img {
+    width: 180px;
+
+    max-width: 80%;
+}
+
+
+/* ================================
+   MENU
+================================ */
+
+.menu {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 35px;
+
+    padding: 15px;
+
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.menu a {
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: #9d8cff;
+
+    transform: scale(1.05);
+}
+
+
+/* ================================
+   TÍTULO
+================================ */
+
+.titulo {
+    text-align: center;
+
+    margin: 35px 0 25px;
+}
+
+.titulo h1 {
+    margin: 0;
+
+    font-size: 32px;
+}
+
+.titulo p {
+    color: #d5d5ff;
+}
+
+
+/* ================================
+   CONTEÚDO
+================================ */
+
+.conteudo {
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 330px;
+
+    gap: 25px;
+
+    padding-bottom: 50px;
+}
+
+
+/* ================================
+   LISTA DOS PRODUTOS
+================================ */
+
+.lista-produtos {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+/* ================================
+   PRODUTO
+================================ */
+
+.produto {
+    background: rgba(14, 4, 56, 0.9);
+
+    border-radius: 15px;
+
+    padding: 18px;
+
+    display: grid;
+
+    grid-template-columns: 110px 1fr auto;
+
+    gap: 20px;
+
+    align-items: center;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.25);
+
+    transition: 0.3s;
+}
+
+.produto:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ================================
+   IMAGEM DO PRODUTO
+================================ */
+
+.produto img {
+    width: 110px;
+
+    height: 110px;
+
+    object-fit: contain;
+
+    background: white;
+
+    border-radius: 10px;
+
+    padding: 8px;
+}
+
+
+/* ================================
+   INFORMAÇÕES
+================================ */
+
+.produto-info h2 {
+    margin: 0 0 8px;
+
+    font-size: 20px;
+}
+
+.produto-info p {
+    margin: 6px 0;
+
+    color: #d7d7ff;
+}
+
+
+/* PREÇO */
+
+.preco {
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: white !important;
+}
+
+
+/* ================================
+   QUANTIDADE
+================================ */
+
+.quantidade {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 12px;
+}
+
+.texto-quantidade {
+    margin-right: 5px;
+
+    color: #d7d7ff;
+
+    font-weight: bold;
+}
+
+.botao-quantidade {
+    width: 32px;
+
+    height: 32px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: white;
+
+    color: #172b8f;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.botao-quantidade:hover {
+    transform: scale(1.08);
+
+    background: #dcdcff;
+}
+
+.numero-quantidade {
+    min-width: 35px;
+
+    text-align: center;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    color: white;
+}
+
+
+/* ================================
+   BOTÃO REMOVER
+================================ */
+
+.remover {
+    border: none;
+
+    background: #e53935;
+
+    color: white;
+
+    padding: 9px 12px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.remover:hover {
+    background: #ff5555;
+
+    transform: scale(1.05);
+}
+
+
+/* ================================
+   RESUMO DA COMPRA
+================================ */
+
+.resumo {
+    background: rgba(14, 4, 56, 0.95);
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    height: fit-content;
+
+    position: sticky;
+
+    top: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.resumo h2 {
+    margin-top: 0;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.2);
+
+    padding-bottom: 15px;
+}
+
+
+/* LINHAS */
+
+.linha {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin: 15px 0;
+
+    color: #d8d8ff;
+}
+
+
+/* TOTAL */
+
+.total {
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    margin-top: 20px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.25);
+}
+
+
+/* ================================
+   BOTÃO FINALIZAR
+================================ */
+
+.finalizar {
+    width: 100%;
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    margin-top: 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #3155ff,
+            #8e44ad
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.finalizar:hover {
+    transform: scale(1.03);
+
+    box-shadow:
+        0 5px 20px rgba(80, 70, 255, 0.5);
+}
+
+
+/* ================================
+   CONTINUAR COMPRANDO
+================================ */
+
+.continuar {
+    display: block;
+
+    text-align: center;
+
+    margin-top: 18px;
+
+    color: #bfc7ff;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.continuar:hover {
+    color: white;
+}
+
+
+/* ================================
+   CARRINHO VAZIO
+================================ */
+
+.vazio {
+    background: rgba(14, 4, 56, 0.9);
+
+    border-radius: 15px;
+
+    padding: 50px 20px;
+
+    text-align: center;
+}
+
+.vazio h2 {
+    margin-bottom: 10px;
+}
+
+.vazio p {
+    color: #d7d7ff;
+}
+
+.vazio a {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 12px 20px;
+
+    border-radius: 8px;
+
+    background: #3155ff;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.vazio a:hover {
+    transform: scale(1.05);
+
+    background: #4b68ff;
+}
+
+
+/* ================================
+   RESPONSIVO
+================================ */
+
+@media (max-width: 800px) {
+
+    .conteudo {
+        grid-template-columns: 1fr;
+    }
+
+    .resumo {
+        position: static;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .menu {
+        gap: 15px;
+
+        flex-wrap: wrap;
+    }
+
+    .produto {
+        grid-template-columns: 80px 1fr;
+    }
+
+    .produto img {
+        width: 80px;
+
+        height: 80px;
+    }
+
+    .produto-acoes {
+        grid-column: 2;
+    }
+
+}

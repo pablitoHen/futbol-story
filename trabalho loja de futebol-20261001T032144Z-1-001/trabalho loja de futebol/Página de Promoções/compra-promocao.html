@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Comprar Promoção - Minha Loja</title>
+
+    <link rel="stylesheet" href="compra-promocao.css">
+</head>
+
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <div class="barra-topo">
+        OFERTA ESPECIAL POR TEMPO LIMITADO
+    </div>
+
+
+    <!-- CABEÇALHO -->
+    <header>
+        <img
+            src="/trabalho loja de futebol/Imagens/logo site original.png"
+            alt="Logo da loja"
+        >
+    </header>
+
+
+    <!-- MENU -->
+    <nav class="menu">
+
+        <a href="../Página de Início/inicio.html">
+            INÍCIO
+        </a>
+
+        <a href="../Página de Produtos/produtos.html">
+            PRODUTOS
+        </a>
+
+        <a href="promocoes.html" class="ativo">
+            PROMOÇÕES
+        </a>
+
+        <a href="../Página de Contatos/contato.html">
+            CONTATO
+        </a>
+
+    </nav>
+
+
+    <!-- AVISO DE PROMOÇÃO -->
+    <div class="faixa-promocao">
+
+        <span id="descontoProduto">
+            OFERTA
+        </span>
+
+        <p id="validadeProduto"></p>
+
+    </div>
+
+
+    <!-- PRODUTO -->
+    <main class="pagina-compra">
+
+
+        <!-- GALERIA -->
+        <section class="galeria">
+
+            <div
+                class="miniaturas"
+                id="miniaturas"
+            ></div>
+
+
+            <div class="foto-principal">
+
+                <img
+                    id="imagemPrincipal"
+                    src="/projeto-site-vendas-20260914T150221Z-1-001/projeto-site-vendas/Imagens/WhatsApp Image 2026-09-15 at 10.48.31 AM (2).jpeg"
+                    alt="Produto promocional"
+                >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- INFORMAÇÕES -->
+        <section class="informacoes">
+
+            <p
+                class="categoria"
+                id="categoriaProduto"
+            ></p>
+
+
+            <h1 id="nomeProduto"></h1>
+
+
+            <!-- PREÇOS -->
+            <div class="bloco-precos">
+
+                <p
+                    class="preco-original"
+                    id="precoOriginalProduto"
+                ></p>
+
+                <h2 id="precoProduto"></h2>
+
+            </div>
+
+
+            <!-- DESCRIÇÃO -->
+            <p
+                class="descricao"
+                id="descricaoProduto"
+            ></p>
+
+
+            <hr>
+
+
+            <!-- MODELO -->
+            <div class="modelo">
+
+                <p>
+                    Modelo selecionado:
+                </p>
+
+                <h3 id="nomeModelo"></h3>
+
+                <p id="especificacaoModelo"></p>
+
+            </div>
+
+
+            <!-- TAMANHOS -->
+            <div
+                class="area-tamanhos"
+                id="areaTamanhos"
+            >
+
+                <p>
+                    Escolha o tamanho:
+                </p>
+
+                <div
+                    class="tamanhos"
+                    id="tamanhos"
+                ></div>
+
+            </div>
+
+
+            <!-- BOTÃO DO CARRINHO -->
+            <button
+                type="button"
+                class="botao-carrinho"
+            >
+                ADICIONAR AO CARRINHO
+            </button>
+
+
+            <!-- VOLTAR -->
+            <a
+                class="voltar-promocoes"
+                href="promocoes.html"
+            >
+                ← VOLTAR PARA AS PROMOÇÕES
+            </a>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ========================================
+         FUNDO DO CARRINHO
+    ======================================== -->
+
+    <div
+        class="fundo-carrinho"
+        id="fundoCarrinho"
+        onclick="fecharCarrinho()"
+    ></div>
+
+
+
+    <!-- ========================================
+         CARRINHO LATERAL
+    ======================================== -->
+
+    <aside
+        class="carrinho-lateral"
+        id="carrinhoLateral"
+    >
+
+        <!-- CABEÇALHO DO CARRINHO -->
+        <div class="cabecalho-carrinho">
+
+            <h2>
+                🛒 Seu Carrinho
+            </h2>
+
+            <button
+                type="button"
+                class="fechar-carrinho"
+                onclick="fecharCarrinho()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- PRODUTOS DO CARRINHO -->
+        <div
+            class="lista-carrinho"
+            id="listaCarrinho"
+        ></div>
+
+
+        <!-- RODAPÉ DO CARRINHO -->
+        <div class="rodape-carrinho">
+
+            <div class="total-carrinho">
+
+                <span>
+                    Total:
+                </span>
+
+                <strong id="totalCarrinho">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="botao-finalizar"
+                onclick="irParaPagamento()"
+            >
+                IR PARA PAGAMENTO
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ========================================
+         SCRIPTS
+         CARREGAR SOMENTE UMA VEZ
+    ======================================== -->
+
+    <script src="produtos-promocao.js"></script>
+
+    <script src="compra-promocao.js"></script>
+
+
+</body>
+</html>
+

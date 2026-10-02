@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Comprar Produto</title>
+
+    <link
+        rel="stylesheet"
+        href="compra.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================= -->
+    <!-- BARRA SUPERIOR -->
+    <!-- ========================= -->
+
+    <div class="barra-topo">
+
+        FRETE GRÁTIS PARA TODO O PAÍS 🚚
+
+    </div>
+
+
+
+    <!-- ========================= -->
+    <!-- CABEÇALHO -->
+    <!-- ========================= -->
+
+    <header>
+
+        <img
+            src="../Imagens/logo da loja azul.jpeg"
+            alt="Logo da loja"
+        >
+
+    </header>
+
+
+
+    <!-- ========================= -->
+    <!-- MENU -->
+    <!-- ========================= -->
+
+    <nav class="menu">
+
+        <a href="../Página de Início/inicio.html">
+            INÍCIO
+        </a>
+
+        <a href="../Página de Produtos/produtos.html">
+            PRODUTOS
+        </a>
+
+        <a href="../Página de Promoções/promocoes.html">
+            PROMOÇÕES
+        </a>
+
+        <a href="../Página de Contatos/contato.html">
+            CONTATO
+        </a>
+
+    </nav>
+
+
+
+    <!-- ========================= -->
+    <!-- PRODUTO -->
+    <!-- ========================= -->
+
+    <main class="pagina-compra">
+
+
+        <!-- GALERIA -->
+
+        <section class="galeria">
+
+            <div
+                class="miniaturas"
+                id="miniaturas"
+            >
+            </div>
+
+
+            <div class="foto-principal">
+
+                <img
+                    id="imagemPrincipal"
+                    src="../Imagens/Produto teste.webp"
+                    alt="Produto"
+                >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- INFORMAÇÕES -->
+
+        <section class="informacoes">
+
+
+            <p
+                class="categoria"
+                id="categoriaProduto"
+            >
+            </p>
+
+
+            <h1 id="nomeProduto">
+            </h1>
+
+
+            <h2 id="precoProduto">
+            </h2>
+
+
+            <p
+                class="descricao"
+                id="descricaoProduto"
+            >
+            </p>
+
+
+            <hr>
+
+
+
+            <!-- MODELO -->
+
+            <div class="modelo">
+
+                <p>
+                    Modelo selecionado:
+                </p>
+
+
+                <h3 id="nomeModelo">
+                </h3>
+
+
+                <p id="especificacaoModelo">
+                </p>
+
+            </div>
+
+
+
+            <!-- TAMANHOS -->
+
+            <div
+                class="area-tamanhos"
+                id="areaTamanhos"
+            >
+
+                <p>
+                    Escolha o tamanho:
+                </p>
+
+
+                <div
+                    class="tamanhos"
+                    id="tamanhos"
+                >
+                </div>
+
+            </div>
+
+
+
+            <!-- BOTÕES -->
+
+            <button
+           type="button"
+           class="botao-carrinho"
+           onclick="adicionarAoCarrinho()"
+>
+          🛒 ADICIONAR AO CARRINHO
+            
+        </button>
+
+
+                <button
+                    type="button"
+                    class="botao-comprar"
+                    onclick="comprarProduto()"
+                >
+
+                    💳 COMPRAR PRODUTO
+
+                </button>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ========================= -->
+    <!-- FUNDO ESCURO -->
+    <!-- ========================= -->
+
+    <div
+        class="fundo-carrinho"
+        id="fundoCarrinho"
+        onclick="fecharCarrinho()"
+    >
+    </div>
+
+
+
+    <!-- ========================= -->
+    <!-- CARRINHO LATERAL -->
+    <!-- ========================= -->
+
+    <aside
+        class="carrinho-lateral"
+        id="carrinhoLateral"
+    >
+
+
+        <!-- CABEÇALHO DO CARRINHO -->
+
+        <div class="cabecalho-carrinho">
+
+            <h2>
+                🛒 Seu Carrinho
+            </h2>
+
+
+            <button
+                type="button"
+                class="fechar-carrinho"
+                onclick="fecharCarrinho()"
+            >
+
+                ×
+
+            </button>
+
+        </div>
+
+
+
+        <!-- LISTA DOS PRODUTOS -->
+
+        <div
+            class="lista-carrinho"
+            id="listaCarrinho"
+        >
+        </div>
+
+
+
+        <!-- RODAPÉ -->
+
+        <div class="rodape-carrinho">
+
+
+            <div class="total-carrinho">
+
+                <span>
+                    Total:
+                </span>
+
+
+                <strong id="totalCarrinho">
+
+                    R$ 0,00
+
+                </strong>
+
+            </div>
+
+
+
+            <button
+                type="button"
+                class="botao-finalizar"
+                onclick="irParaPagamento()"
+            >
+
+                💳 FINALIZAR COMPRA
+
+            </button>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- ========================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================= -->
+
+    <script src="compra.js"></script>
+
+
+</body>
+
+</html>
+
+
